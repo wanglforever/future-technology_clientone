@@ -1,0 +1,14 @@
+node_modules/
+bower_components/
+.sass-cache/
+.idea/
+.sonar/
+sonar-project.properties
+.tmp/
+dist/*
+www/*
+www1/*
+.DS_Store
+docker/**/www
+*.iml
+package-lock.json

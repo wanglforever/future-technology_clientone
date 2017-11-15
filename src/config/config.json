@@ -1,0 +1,14 @@
+{
+    "local": {
+        "serverUrl": "http://localhost:8080"
+    },
+    "dev": {
+        "serverUrl": "http://172.168.1.149:8080"
+    },
+    "test": {
+        "serverUrl": "http://localhost:8080"
+    },
+    "product": {
+        "serverUrl": "http://172.168.1.149:8080"
+    }
+}

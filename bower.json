@@ -1,0 +1,15 @@
+{
+  "name": "udbs-client",
+  "description": "",
+  "main": "",
+  "authors": [
+    "王磊 <wanglei@kyee.com.cn>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular-ui-router": "^1.0.6",
+    "angular": "^1.6.6",
+    "bootstrap": "^3.3.7"
+  }
+}
