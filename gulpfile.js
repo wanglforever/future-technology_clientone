@@ -21,17 +21,17 @@ var args = require('yargs')
     .default('runServer', true)
     .default('debug', false)
     .default('build', false)
-    .default('port', 3000)
+    .default('port', 9003)
     .default('protocol', 'http://')
     .default('html5Mode', false)
     .argv;
 
-var appName = 'udbs';
+var appName = 'iot-call';
 var build = !!args.build;
 var debug = !!args.debug;
 var isRunServer = args.runServer === true || args.runServer.toLowerCase() === "true";
 var port = args.port;
-var targetDir = path.resolve(build || !isRunServer ? 'www1' : '.tmp');
+var targetDir = path.resolve(build || !isRunServer ? 'www' : '.tmp');
 var isNewIp = !!args.serverIp && !!args.protocol;
 var serverUrl = args.protocol + args.serverIp;
 var resourceUrl = args.resourceIp + "/**";
@@ -83,7 +83,7 @@ gulp.task('styles', function() {
     };
 
     //parse sass to css
-    var sassStream = plugins.rubySass('src/styles/index.scss', sassOptions)
+    var sassStream = plugins.rubySass('src/styles/main.scss', sassOptions)
         .pipe(plugins.autoprefixer({
             browsers: ['last 3 version']
         }));
@@ -100,7 +100,7 @@ gulp.task('styles', function() {
                 }
             }
         })))
-        .pipe(plugins.concat('index.css'))
+        .pipe(plugins.concat('main.css'))
         .pipe(plugins.if(build, plugins.minifyCss({
             processImport: false
         })))
@@ -177,7 +177,8 @@ gulp.task('scripts', function() {
         .pipe(plugins.if(isNewIp,
             plugins.replace(oldUrl, serverUrl)))
         .pipe(plugins.if(isNewIp,
-            plugins.replace(oldResUrl, resourceUrl)));
+            plugins.replace(oldResUrl, resourceUrl)))
+        .pipe(gulp.dest(dest));
 
     var templateStream = gulp
         .src(['dist/**/*.json', 'src/views/**/*.html'])
@@ -229,7 +230,7 @@ gulp.task('scripts', function() {
 
     return streamqueue({
             objectMode: true
-        }, appStream, moduleStream, subModuleStream, scriptStream, templateStream, configStream)
+        }, appStream, moduleStream, subModuleStream, scriptStream, templateStream)
         .pipe(plugins.if(build, plugins.ngAnnotate()))
         .pipe(plugins.if(build, plugins.stripDebug()))
         .pipe(plugins.if(build, plugins.sourcemaps.init()))
@@ -303,7 +304,7 @@ gulp.task('inject', ['styles-vendor', 'styles', 'vendor', 'scripts'], function()
         return isExcept;
     }
 
-    var cssNaming = 'styles/index*';
+    var cssNaming = 'styles/main*';
     var cssVendorNaming = 'styles/vendor*';
     var exceptRegx = [/\.html$/, /((main|home)-\w*\.css)$/, /(app-\w*\.js)$/];
     var _inject = function(src, tag) {
@@ -354,7 +355,7 @@ gulp.task('inject', ['styles-vendor', 'styles', 'vendor', 'scripts'], function()
             cwd: targetDir
         }), 'home'))
         .pipe(plugins.if(build,
-            _inject(gulp.src('scripts/app*.js', {
+            _inject(gulp.src(['scripts/app*.js','scripts/config.js'], {
                 cwd: targetDir
             }), 'app'),
             _inject(_getAllScriptSources(), 'app')))

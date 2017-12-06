@@ -1,0 +1,55 @@
+<div class="noticesetting-page">
+    <div class="setting-nav-bar">
+        当前位置：系统设置>公告设置
+    </div>
+    <div class="setting-title">
+        <span class="title-symbol"></span>公告栏设置
+    </div>
+    <div class="notice-tools-bar">
+        <div class="btn-border notice-add-btn" data-toggle="modal" data-target=".add-notice" ng-click="showAddModel()">新建</div>
+    </div>
+    <div class="notice-content">
+        <div class="notice-list-title">
+            <span>呈现</span>
+            <span>内容</span>
+            <span>保存时间</span>
+            <span>
+            	<span ng-click="toggleSort()">
+            		{{isSort?'完成':'排序'}}
+            	</span>
+            </span>
+            <span></span>
+        </div>
+        <div class="notice-list" ui-sortable="sortableOptions" ng-model="noticeList">
+            <div class="notice-list-item" ng-repeat="notice in noticeList track by $index" ng-class="{'sortable': !!notice.isShow}">
+                <span>
+    				<span class="sel-radio" ng-click="toggleSelect(notice)" ng-class="notice.isShow?'sel-radio-selected':''"></span>
+                </span>
+                <span>
+                	{{notice.content}}
+	    		</span>
+                <span>
+                	<span>{{notice.createTime}}</span>
+                </span>
+                <span>
+                	<img class="myHandle" ng-show="isSort && notice.isShow" src="images/setting/sort.png" alt="">
+                </span>
+                <span>
+                	<div class="btn-border btn-notice-del" ng-click="delNotice(notice.id, $index)">删除</div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade add-notice" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content add-notice-content">
+            <div class="add-notice-title">内容公告</div>
+            <textarea ng-model="addNoticeContent" class="form-control add-notice-input" rows="3" ng-trim="false"></textarea>
+            <div class="add-notice-tools">
+                <div class="btn-no-border" data-dismiss="modal">取消</div>
+                <div class="btn-iot-primary" ng-click="addNotice()">确定</div>
+            </div>
+        </div>
+    </div>
+</div>

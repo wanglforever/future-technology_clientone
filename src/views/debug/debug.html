@@ -1,0 +1,15 @@
+<div class="debug-page">
+    <div class="left-side">
+    	<div class="logo">
+            <span class="icon icond-icon-logo-custom"></span>
+    	</div>
+    	<ul class="menu">
+    		<li ng-repeat="menu in menus" ng-class="menu.isSelected ? 'active' : ''">
+    			<span class="icon icond-icon-link"></span>{{menu.name}}
+    		</li>
+    	</ul>
+    </div>
+    <div class="debug-content">
+        <div style="height:100%" ui-view></div>
+    </div>
+</div>

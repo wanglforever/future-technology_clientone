@@ -1,0 +1,54 @@
+<div class="sweepgun-page">
+    <div class="setting-nav-bar">
+        当前位置：系统设置>扫码枪设置
+    </div>
+    <div class="setting-title">
+        <span class="title-symbol"></span>扫码枪绑定关系
+    </div>
+    <div class="sweepgun-filter-bar">
+        <span>绑定状态</span>
+        <ui-select class="sweepgun-select" ng-model="selected.bindType" search-enabled="false">
+            <ui-select-match>
+                <span ng-bind="$select.selected.text"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="item in (bindTypes | filter: $select.search) track by item.type">
+                <span ng-bind="item.text"></span>
+            </ui-select-choices>
+        </ui-select>
+        <span>职工姓名</span>
+        <ui-select class="sweepgun-select" ng-model="selected.staff">
+            <ui-select-match>
+                <span ng-bind="$select.selected.name"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="staff in (staffs | filter: $select.search) track by staff.id">
+                <span ng-bind="staff.name"></span>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+    <div class="sweepgun-content">
+        <div class="sweepgun-content-title">
+            <span>序号</span>
+            <span>职工姓名</span>
+            <span>职工工号</span>
+            <span>身份</span>
+            <span>扫码枪设备号</span>
+            <span>绑定时间</span>
+            <span>操作</span>
+        </div>
+        <div class="sweepgun-content-container ">
+           <div class="sweepgun-content-item " ng-repeat="bindInfo in bindInfos | advanceFilter:selected.staff.name:selected.bindType.type track by $index ">
+                <span>{{$index+1}}</span>
+                <span>{{bindInfo.staffName}}</span>
+                <span>{{bindInfo.staffId}}</span>
+                <span>{{bindInfo.job}}</span>
+                <span>{{bindInfo.scannerGunId}}</span>
+                <span>{{bindInfo.bindTime ? bindInfo.bindTime:''}}</span>
+                <span>
+                    <div class="btn-sweepgun " ng-class="bindInfo.scannerGunId? '': 'btn-sweepgun-disable' " ng-click="unbundle(bindInfo.staffId, !!bindInfo.scannerGunId) ">
+                        解绑
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

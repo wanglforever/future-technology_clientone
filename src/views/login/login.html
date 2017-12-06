@@ -1,0 +1,36 @@
+<div class="login-body">
+    <form name="login" ng-submit="submit()">
+        <div class="logo">
+            <span class="icon-icon-logo-custom"></span>
+        </div>
+        <div class="description">
+            <span ng-click="debug()">床旁护理呼叫系统</span>
+        </div>
+        <div class="login-box">
+            <div class="welcome">
+                欢迎登录
+            </div>
+            <div class="login-info">
+                <input name="UserName" type="text" id="UserName" placeholder="请输入账户名" ng-model="account.username" ng-change="searchWardName()" />
+                <input name="Password" type="password" id="Password" placeholder="请输入密码" ng-model="account.password" />
+                <input name="WardName" type="text" id="WardName" placeholder="请选择病区" ng-model="ward.curWard.wardName" autocomplete="off" ng-focus="ward.showMenu()" ng-blur="ward.hideMenu()" />
+                <div class="select" id="Select" ng-if="ward.menuStatus">
+                    <ul id="selectList" ng-mouseleave="ward.mouseEvent($event)" ng-mouseenter="ward.mouseEvent($event)">
+                        <li ng-click="ward.chooseWardName($index)" ng-repeat="wardInfo in ward.wardInfos track by $index">
+                            {{wardInfo.wardName}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="button-box" ng-mouseenter="showHover = true" ng-mouseleave="showHover = false">
+                    <span class="shadow" ng-class="{true:' hover',false:''}[showHover]"></span>
+                    <button type="submit" class="button-login" id="button">
+                        登录
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="copyright">
+        Copyright © 2017 Kyee. All rights Reserved.
+    </div>
+</div>

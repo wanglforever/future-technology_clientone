@@ -1,0 +1,29 @@
+<ul class="ky-pagination" >
+    <li>
+        <ul class="pages" ng-style="cursorDisabled" >
+            <li ng-click="go2Page(1)" ng-style="cursorDisabled" ng-class="{unable: curPage === 1 || isDisabled}">
+                &lt;&lt;
+            </li>
+            <li ng-click="go2Page(curPage-1)" ng-style="cursorDisabled" ng-class="{unable: curPage === 1 || isDisabled}">
+                &lt;
+            </li>
+            <li  ng-show="frontEllipsis" ng-style="cursorDisabled" class="unable">
+                ...
+            </li>
+            <li class="page-btn" ng-style="cursorDisabled" ng-repeat="num in pages" ng-click="go2Page(num)"
+                ng-class="{active: num === curPage && !isDisabled,'unable':isDisabled}">
+                <span>{{num}}</span>
+            </li>
+            <li  ng-show="endEllipsis" ng-style="cursorDisabled" class="unable">
+                ...
+            </li>
+            <li ng-click="go2Page(curPage+1)" ng-style="cursorDisabled" ng-class="{unable: curPage === totalPages || isDisabled}">
+                &gt;
+            </li>
+            <li ng-click="go2Page(totalPages)" ng-style="cursorDisabled" ng-class="{unable: curPage === totalPages || isDisabled}">
+                &gt;&gt;
+            </li>
+        </ul>
+    </li>
+</ul>
+

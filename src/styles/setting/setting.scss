@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.setting-page {
+    display: flex;
+    height: 100%;
+
+    .left-side {
+        width: 195px;
+        height: 100%;
+        background: #5A97F7;
+        padding-top: 10px;
+        flex-shrink: 0;
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            height: 34px;
+            width: 100%;
+            line-height: 34px;
+            cursor: pointer;
+        }
+
+        li {
+            padding-left: 58px;
+
+            &:hover {
+                background: #FFFFFF;
+                color: #5A97F7;
+            }
+        }
+
+        .menu {
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        .menu-active {
+            background: #FFF;
+            color: #5A97F7;
+        }
+
+        .level1-menu {
+            position: relative;
+        }
+
+        .level2-icon {
+            position: absolute;
+            line-height: 34px;
+        }
+
+        .icon-icon-setup-custom {
+            left: 20px;
+            font-size: 16px;
+        }
+
+        .icon-arrow {
+            right: 10px;
+        }
+    }
+    .setting-content {
+        flex-grow: 1;
+        height: 100%;
+        padding: 10px 20px 20px 20px;
+        position: relative;
+
+
+        .setting-nav-bar {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .setting-title {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #626262;
+            margin-top: 20px;
+            flex-shrink: 0;
+        }
+    }
+}
+@import "sweepgun";
+@import "commonsetting";
+@import "noticesetting";

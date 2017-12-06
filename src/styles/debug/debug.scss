@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.debug-page {
+    display: flex;
+    height: 100%;
+
+    .left-side {
+        width: 195px;
+        background: #6088FF;
+
+        .logo {
+            font-size: 30px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu {
+            li {
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                color: #fff;
+                cursor: pointer;
+
+                >span {
+                    margin-right: 16px;
+                }
+
+                &:hover {
+                    background: #78A7FF;
+                }
+
+                &.active {
+                    background: #78A7FF;
+                }
+            }
+        }
+    }
+    .debug-content {
+        flex-grow: 1;
+    }
+}
+
+@import "optimal";

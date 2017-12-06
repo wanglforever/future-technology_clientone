@@ -1,0 +1,21 @@
+<div class="iot-header" id="iot-header">
+    <div class="logo">
+        <span class="icon-icon-logo-custom"></span>
+    </div>
+    <div class="sys-name hidden-xs">
+        床旁护理呼叫系统
+    </div>
+    <div class="welcome hidden-xs">
+        <img alt="头像" src="../images/main/headImg.png" />
+        <span>Hi,&nbsp;&nbsp;{{userInfo.accountName || userInfo.showUserName}}</span>
+    </div>
+    <div class="quit-system" ng-click="exit()">
+        <span class="icon-icon-exit"></span>
+        <span>退出系统</span>
+    </div>
+    <div class="ward-name visible-lg">
+        {{userInfo.wardName}}
+    </div>
+</div>
+<div class="iot-content" ui-view>
+</div>

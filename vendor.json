@@ -1,6 +1,16 @@
 [
-	"bower_components/jquery/dist/jquery.js",
-	"bower_components/angular/angular.js",
+    "bower_components/jquery/dist/jquery.js",
+    "bower_components/jquery-ui/jquery-ui.js",
+    "bower_components/bootstrap/dist/js/bootstrap.js",
+    "bower_components/bootstrap-switch/dist/js/bootstrap-switch.js",
+    "bower_components/angular/angular.js",
+    "bower_components/sockjs-client/dist/sockjs.js",
+    "bower_components/stomp-websocket/lib/stomp.js",
     "bower_components/angular-ui-router/release/angular-ui-router.js",
-    "bower_components/bootstrap/dist/js/bootstrap.js"
+    "bower_components/angular-ui-select/dist/select.js",
+    "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
+    "bower_components/ng-stomp/dist/ng-stomp.min.js",
+    "bower_components/ngstorage/ngStorage.js",
+    "bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.js",
+    "bower_components/angular-ui-sortable/sortable.js"
 ]
