@@ -21,12 +21,12 @@ var args = require('yargs')
     .default('runServer', true)
     .default('debug', false)
     .default('build', false)
-    .default('port', 9003)
+    .default('port', 3000)
     .default('protocol', 'http://')
     .default('html5Mode', false)
     .argv;
 
-var appName = 'iot-call';
+var appName = 'udbs';
 var build = !!args.build;
 var debug = !!args.debug;
 var isRunServer = args.runServer === true || args.runServer.toLowerCase() === "true";
@@ -202,7 +202,7 @@ gulp.task('scripts', function() {
 
     var appStream = gulp.src('src/scripts/app.js')
         .pipe(plugins.if(args.html5Mode,
-            plugins.replace('html5Mode(false)', 'html5Mode(true)')));
+            plugins.replace('html5Mode(false)', 'html5Mode(false)')));
     //获取所有定义module的js，如：common/commonModule.js
     var moduleStream = gulp.src(['*/*.js'], {
             cwd: 'src/scripts'

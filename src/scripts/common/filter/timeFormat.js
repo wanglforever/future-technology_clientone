@@ -1,5 +1,5 @@
 'use strict';
-angular.module('iot-call.common')
+angular.module('udbs.common')
     .filter('timeFormat', function() {
         var filter = function(input) {
             var times = input.split(':');

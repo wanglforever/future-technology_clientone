@@ -1,5 +1,5 @@
 'use strict';
-angular.module('iot-call.common')
+angular.module('udbs.common')
     .filter('advanceFilter', function() {
         var filter = function(input, staffName, bindType) {
             if (!input) {

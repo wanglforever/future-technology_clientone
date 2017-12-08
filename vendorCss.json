@@ -1,5 +1,6 @@
 [
 	"bower_components/bootstrap/dist/css/bootstrap.css",
 	"bower_components/angular-ui-select/dist/select.css",
-	"bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"
+	"bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css",
+    "bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"
 ]

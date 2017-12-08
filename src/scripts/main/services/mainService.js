@@ -1,15 +1,8 @@
 'use strict';
-angular.module('iot-call.main')
+angular.module('udbs.main')
     .service('mainService',['$http','serverUrl',function($http,serverUrl){
         var service = this;
-        
-        /**
-         * 获取全部医院信息
-         * @returns {*}
-         */
-        service.getAllWardName = function () {
-            
-        };
+
 
 
     }]);

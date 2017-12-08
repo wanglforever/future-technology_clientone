@@ -13,9 +13,22 @@
         <span class="icon-icon-exit"></span>
         <span>退出系统</span>
     </div>
-    <div class="ward-name visible-lg">
-        {{userInfo.wardName}}
-    </div>
 </div>
-<div class="iot-content" ui-view>
+<div class="udbs-page">
+    <div class="main-menu">
+        <div class="menu-item-first" ng-click="changeContent()"><span>内容</span></div>
+        <div ng-if="contentIsShow">
+            <div class="menu-item-second" ng-click="changeState(1)"><span>内容列表</span></div>
+            <div class="menu-item-second" ng-click="changeState(2)"><span>新增内容</span></div>
+        </div>
+
+        <div class="menu-item-first" ng-click="changeOperate()"><span>运营</span></div>
+        <div ng-if="operateIsShow">
+            <div class="menu-item-second" ng-click="changeState(3)"><span>banner列表</span></div>
+            <div class="menu-item-second" ng-click="changeState(4)"><span>新增banner</span></div>
+        </div>
+    </div>
+    <div class="udbs-content" ui-view>
+</div>
+
 </div>

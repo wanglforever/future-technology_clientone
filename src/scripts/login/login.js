@@ -1,5 +1,5 @@
 'use strict';
-angular.module('iot-call.login', [])
+angular.module('udbs.login', [])
     .config(['$stateProvider', function($stateProvider){
         $stateProvider
             .state('login', {

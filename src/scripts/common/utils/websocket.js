@@ -1,5 +1,5 @@
 'use strict';
-angular.module('iot-call.common')
+angular.module('udbs.common')
     .factory('webSocket', function($stomp, serverUrl) {
         function connect(connectCallback, errorCallback) {
             $stomp.connect(serverUrl + '/ws', {

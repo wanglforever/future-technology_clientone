@@ -1,5 +1,5 @@
 'use strict';
-angular.module('iot-call.common')
+angular.module('udbs.common')
     .service('userInfoService', ['$localStorage', function($localStorage) {
         var service = this;
 

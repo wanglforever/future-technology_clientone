@@ -1,0 +1,30 @@
+<div class="content-page">
+    <div class="content-crumb">
+        <span>当前位置：内容>内容列表</span>
+    </div>
+    <div class="content-search">
+        <div class="pay-startTime">
+            <div class="startTime-box">
+                <span>起始时间</span>
+                <div class="display-startTime">
+                    <p>{{ startTime | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+                </div>
+                <div class="icon-position" ng-click="changeStartTimeShow()">
+                    <span class="icon-icon-calendar-custom"></span>
+                </div>
+            </div>
+            <div class="start-datetimepicker-position" ng-show="startTimeShow">
+                <datetimepicker data-ng-model="startTime"></datetimepicker>
+            </div>
+
+        </div>
+
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="content-list"></div>
+    <div></div>
+    <div></div>
+</div>

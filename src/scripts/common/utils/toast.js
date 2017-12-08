@@ -6,7 +6,7 @@
  * 创建原因：对toastr进一步封装
  * 参考路径：https://github.com/Foxandxss/angular-toastr
  */
-angular.module('iot-call.common')
+angular.module('udbs.common')
     .config(function(toastrConfig) {
         angular.extend(toastrConfig, {
             positionClass: 'toast-top-center',

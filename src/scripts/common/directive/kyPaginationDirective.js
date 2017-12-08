@@ -1,5 +1,5 @@
 'use strict';
-angular.module('iot-call.common')
+angular.module('udbs.common')
     .directive('kyPagination', [function() {
         return {
             restrict: 'E',

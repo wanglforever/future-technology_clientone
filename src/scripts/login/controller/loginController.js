@@ -1,15 +1,17 @@
 'use strict';
-angular.module('iot-call.login')
-    .controller('loginController', ['$scope', '$state', 'loginService', 'Ward', 'toast', 'userInfoService', '$timeout',
-        function($scope, $state, loginService, Ward, toast, userInfoService, $timeout) {
-            $scope.account = userInfoService.getLastLoginName();
-            $scope.ward = new Ward();
+angular.module('udbs.login')
+    .controller('loginController', ['$scope', '$state', 'loginService', 'toast', 'userInfoService', '$timeout',
+        function($scope, $state, loginService, toast, userInfoService, $timeout) {
+            // $scope.account = userInfoService.getLastLoginName();
 
             $scope.submit = function() {
                 $scope.promise = loginService.login($scope.account.username, $scope.account.password)
-                    .then(function() {
-                        userInfoService.updateWardInfo($scope.ward.curWard.wardNo, $scope.ward.curWard.wardName);
-                        $state.go('main.call');
+                    .then(function(resp) {
+                        if(resp.accountRole == 'ROLE_ADMIN'){
+                            $state.go('main');
+                        }else{
+                            toast.error("登录失败，重新登录")
+                        }
                     }, function(resp) {
                         if (resp.status === 401) {
                             if (resp.data && resp.data.message === 'User is disabled') {
@@ -24,38 +26,5 @@ angular.module('iot-call.login')
                         }
                     });
             };
-
-            $scope.searchWardName = function() {
-                loginService.getAllWardName($scope.account.username)
-                    .then(function(result) {
-                        if (result.data && result.data.length) {
-                            $scope.ward.init(result.data);
-                        } else {
-                            $scope.ward.clearWard();
-                        }
-                    }, function() {
-                        toast.error('登录失败');
-                    });
-            };
-
-            var clickNum = 0;
-            var clickClearTimeout = null;
-            $scope.debug = function() {
-                clickNum++;
-                if (!clickClearTimeout) {
-                    clickClearTimeout = $timeout(function() {
-                        clickNum = 0;
-                        clickClearTimeout = null;
-                    }, 2000);
-                }
-                if (clickNum > 5) {
-                    $timeout.cancel(clickClearTimeout);
-                    clickNum = 0;
-                    clickClearTimeout = null;
-                    $state.go('debug.optimal');
-                }
-            };
-
-            $scope.searchWardName();
         }
     ]);

@@ -1,13 +1,12 @@
 'use strict';
-angular.module('iot-call', [
+angular.module('udbs', [
         'ui.router',
-        'iot-call.common',
-        'iot-call.backup',
-        'iot-call.main',
-        'iot-call.login',
-        'iot-call.call',
-        'iot-call.setting',
-        'iot-call.debug'
+        'udbs.common',
+        'udbs.main',
+        'udbs.login',
+        'main.content',
+        'main.operate',
+        'ui.bootstrap.datetimepicker'
     ])
     .config(['$urlRouterProvider', '$locationProvider',
         function($urlRouterProvider, $locationProvider) {
@@ -17,8 +16,6 @@ angular.module('iot-call', [
             $locationProvider.html5Mode(false);
             $urlRouterProvider
                 .when('/', '/login')
-                .when('/setting', '/setting/sweepgun')
-                .when('/debug','/debug/optimallink')
                 .otherwise('login');
         }
     ]);

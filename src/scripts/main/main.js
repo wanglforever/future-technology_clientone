@@ -1,10 +1,9 @@
 'use strict';
-angular.module('iot-call.main', [])
+angular.module('udbs.main',[])
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state('main', {
-                url: '',
-                abstract: true,
+                url: '/main',
                 templateUrl: 'views/main/main.html',
                 controller: 'mainController'
             });
