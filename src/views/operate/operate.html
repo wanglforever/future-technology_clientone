@@ -2,9 +2,41 @@
     <div class="operate-crumb">
         <span>当前位置：运营>banner列表</span>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="operate-search">
+        <button class="button-general" ng-click="search()">
+            批量删除
+        </button>
+    </div>
+    <div class="table-position">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <td>
+                    <div ng-click="selectAll()" class="index-layout">
+                        <div ng-show="chooseAll" class="icon-icon-checkbox-active-custom"></div>
+                        <div ng-show="!chooseAll" class="icon-icon-checkbox-normal-custom"></div>
+                        <span>序号</span>
+                    </div>
+                </td>
+                <td>名称</td>
+                <td>描述</td>
+                <td>资源</td>
+                <td>链接地址</td>
+                <td>banner位</td>
+                <td>状态</td>
+                <td>创建时间</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="pagination-position">
+            <ky-pagination total-pages="vm.sumPage" cur-page="vm.nowPage"
+                           update-func="vm.refreshList(num)">
+            </ky-pagination>
+        </div>
+    </div>
 </div>
 

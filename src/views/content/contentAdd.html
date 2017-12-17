@@ -2,8 +2,29 @@
     <div class="contentAdd-crumb">
         <span>当前位置：内容>新增内容</span>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="contentAdd-type">
+        <select class="contentAdd-type-select" ng-model="contentType"
+                ng-options="contentType for contentType in contentTypeList">
+            <option value=""  disabled>请选择内容分类</option>
+        </select>
+    </div>
+    <div class="contentAdd-title">
+        <input class="search-input" type="text" placeholder="请输入文章标题" ng-model="contentTitle">
+        <div class="error-message" ng-show="isDuplicateName">{{errorMessage}}</div>
+    </div>
+    <div id="editor" class="contentAdd-editor">
+    </div>
+    <div class="contentAdd-status">
+        <span>状态</span>
+        <div ng-class="{'selected':selected}" ng-click="changeSelected(0)">上线</div>
+        <div ng-class="{'selected':!selected}" ng-click="changeSelected(1)">暂不上线</div>
+    </div>
+    <div class="contentAdd-option">
+        <button class="button-general" ng-click="save()">
+            保存
+        </button>
+        <button class="button-general-simple" ng-click="cancel()">
+            取消
+        </button>
+    </div>
 </div>

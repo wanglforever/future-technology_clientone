@@ -5,3 +5,8 @@
  * Time: 22:19
  * Description:
  */
+'use strict';
+angular.module('main.operate')
+    .controller('operateController',['$scope', '$state',function ($scope,$state) {
+
+    }]);

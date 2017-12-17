@@ -8,7 +8,7 @@ angular.module('udbs.login')
                 $scope.promise = loginService.login($scope.account.username, $scope.account.password)
                     .then(function(resp) {
                         if(resp.accountRole == 'ROLE_ADMIN'){
-                            $state.go('main');
+                            $state.go('main.content');
                         }else{
                             toast.error("登录失败，重新登录")
                         }

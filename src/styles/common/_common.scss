@@ -119,3 +119,34 @@ li {
     text-align: left;
     vertical-align: middle;
 }
+
+/* 4类 button 之：通用 button */
+.button-general {
+    color: #fff;
+    background-color: #42a7e7;
+}
+
+.button-general-simple {
+    color: #42a7e7;
+    border: 1px solid #42a7e7;
+    background-color: #ffffff;
+}
+
+.button-general:hover {
+    background-color: #51b9fb;
+}
+
+.button-general-simple:hover {
+    background-color: #f0f7f8;
+}
+
+.button-general[disabled] {
+    background-color: #97DCFF;
+    cursor: not-allowed;
+}
+
+.button-general-simple[disabled] {
+    background-color: #f0f7f8;
+    color: #97dcff;
+    cursor: not-allowed;
+}

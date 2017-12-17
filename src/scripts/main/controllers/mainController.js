@@ -1,7 +1,7 @@
 'use strict';
 angular.module('udbs.main')
-    .controller('mainController', ['$scope', '$state', 'userInfoService',
-        function($scope, $state, userInfoService) {
+    .controller('mainController', ['$scope', '$state', 'userInfoService','$localStorage',
+        function($scope, $state, userInfoService,$localStorage) {
 
         $scope.contentIsShow = false;
         $scope.operateIsShow = false;
@@ -18,6 +18,8 @@ angular.module('udbs.main')
             if (id == 1){
                 $state.go('main.content');
             }else if (id == 2){
+                $localStorage.contentEdit = false;
+                $localStorage.content = {};
                 $state.go('main.contentAdd');
             }else if (id == 3){
                 $state.go('main.operate');

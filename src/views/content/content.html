@@ -3,11 +3,12 @@
         <span>当前位置：内容>内容列表</span>
     </div>
     <div class="content-search">
-        <div class="pay-startTime">
+        <div class="content-startTime">
             <div class="startTime-box">
                 <span>起始时间</span>
                 <div class="display-startTime">
-                    <p>{{ startTime | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+                    <p ng-show="startTime==null">请选择开始时间</p>
+                    <p style="color: #000000;">{{ startTime | date:'yyyy-MM-dd HH:mm:ss' }}</p>
                 </div>
                 <div class="icon-position" ng-click="changeStartTimeShow()">
                     <span class="icon-icon-calendar-custom"></span>
@@ -16,15 +17,98 @@
             <div class="start-datetimepicker-position" ng-show="startTimeShow">
                 <datetimepicker data-ng-model="startTime"></datetimepicker>
             </div>
-
         </div>
-
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="content-endTime">
+            <div class="endTime-box">
+                <span>结束时间</span>
+                <div class="display-endTime">
+                    <p ng-show="endTime==null">请选择结束时间</p>
+                    <p style="color: #000000;">{{ endTime | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+                </div>
+                <div class="icon-position" ng-click="changeEndTimeShow()">
+                    <span class="icon-icon-calendar-custom"></span>
+                </div>
+            </div>
+            <div class="end-datetimepicker-position" ng-show="endTimeShow">
+                <datetimepicker data-ng-model="endTime"></datetimepicker>
+            </div>
+        </div>
+        <select class="content-type-select" ng-model="contentType"
+                ng-options="contentType for contentType in contentTypeList">
+            <option value=""  disabled>请选择内容分类</option>
+        </select>
+        <select class="content-status-select" ng-model="contentStatus"
+                ng-options="contentStatus for contentStatus in contentStatusList">
+            <option value=""  disabled>状态</option>
+        </select>
+        <input class="search-input" type="text" placeholder="请输入文章标题" ng-model="contentTitle">
+        <button class="button-general" ng-click="queryContentList()">
+            搜索
+        </button>
+        <button class="button-general-simple" ng-click="batchDelete()">
+            批量删除
+        </button>
     </div>
-    <div class="content-list"></div>
-    <div></div>
-    <div></div>
+    <div class="table-position">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <td>
+                    <div ng-click="selectAll()" class="index-layout">
+                        <div ng-show="isSelectAll()" class="icon-icon-checkbox-active-custom"></div>
+                        <div ng-show="!isSelectAll()" class="icon-icon-checkbox-normal-custom"></div>
+                        <span>序号</span>
+                    </div>
+                </td>
+                <td>标题</td>
+                <td>分类</td>
+                <td>状态</td>
+                <td>创建时间</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="content in contentList track by $index">
+                <td>
+                    <div ng-click="select(content.essay_id)" class="index-layout">
+                        <div ng-show="content.isSelected" class="icon-icon-checkbox-active-custom"></div>
+                        <div ng-show="!content.isSelected" class="icon-icon-checkbox-normal-custom"></div>
+                        <span>{{(pageParam.currentPage-1) * 10+$index+1}}</span>
+                    </div>
+                </td>
+                <td>
+                    {{content.essay_title}}
+                </td>
+                <td>
+                    {{content.catogory_name}}
+                </td>
+                <td>
+                    {{content.status_name}}
+                </td>
+                <td>
+                    {{content.essay_mktime}}
+                </td>
+                <td>
+                    <button class="button-general" ng-click="edit($index)">
+                        编辑
+                    </button>
+                    <button class="button-general" ng-click="online(content.essay_id)" ng-show="content.status_name == '已下线'">
+                        上线
+                    </button>
+                    <button class="button-general-simple" ng-click="offline(content.essay_id)"  ng-show="content.status_name == '已上线'">
+                        下线
+                    </button>
+                    <button class="button-general" ng-click="delete(content.essay_id)">
+                        删除
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagination-position">
+            <ky-pagination total-pages="pageParam.totalPage" cur-page="pageParam.currentPage"
+                           update-func="refreshList(num)">
+            </ky-pagination>
+        </div>
+    </div>
 </div>
