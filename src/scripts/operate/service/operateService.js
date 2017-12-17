@@ -5,3 +5,8 @@
  * Time: 22:20
  * Description:
  */
+'use strict';
+angular.module('main.operate')
+    .controller('operateService',['$http','$q','serverUrl',function ($http,$q,serverUrl) {
+
+    }]);

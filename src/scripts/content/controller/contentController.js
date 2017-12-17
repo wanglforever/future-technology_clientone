@@ -68,7 +68,8 @@ angular.module('main.content')
             catogory_id:typeMap[$scope.contentType],
             status_id:statusMap[$scope.contentStatus],
             essay_title:$scope.contentTitle,
-            currentPage:curPage
+            currentPage:curPage == null?1:curPage,
+            offcount:10
         };
         contentService.queryContent(searchParam).then(function (resp) {
             if(resp.data != null){

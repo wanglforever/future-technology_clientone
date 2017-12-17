@@ -1,8 +1,59 @@
 @charset "UTF-8";
 
 .operateAdd-page{
+    >div{
+        display: flex;
+        justify-content: flex-start;
+    }
     .operateAdd-crumb{
         height: 30px;
         line-height: 30px;
+    }
+    .operateAdd-name{
+        margin-top: 15px;
+        input{
+            padding-left: 10px;
+            width: 300px;
+            height: 34px;
+            border: 1px solid #999;
+            border-radius: 3px;
+        }
+    }
+    .operateAdd-description{
+        margin-top: 15px;
+        input{
+            padding-left: 10px;
+            width: 600px;
+            height: 34px;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+    }
+    .operateAdd-position{
+        margin-top: 15px;
+        .operateAdd-position-select{
+            padding-left: 5px;
+            width: 200px;
+            height: 34px;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+    }
+    .operateAdd-source{
+        margin-top: 15px;
+    }
+    .operateAdd-link{
+        margin-top: 15px;
+    }
+    .operateAdd-status{
+        margin-top: 15px;
+    }
+    .operateAdd-option{
+        margin-top: 15px;
+    }
+    .item-title{
+        width: 100px;
+        height: 34px;
+        line-height: 34px;
     }
 }

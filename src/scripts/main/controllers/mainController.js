@@ -24,6 +24,8 @@ angular.module('udbs.main')
             }else if (id == 3){
                 $state.go('main.operate');
             }else if (id == 4){
+                $localStorage.operateEdit = false;
+                $localStorage.operate = {};
                 $state.go('main.operateAdd');
             }
         };

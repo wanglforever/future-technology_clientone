@@ -2,8 +2,33 @@
     <div class="operateAdd-crumb">
         <span>当前位置：运营>新增banner</span>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="operateAdd-name">
+        <div class="item-title">
+            <span>banner名称</span>
+        </div>
+        <input>
+    </div>
+    <div class="operateAdd-description">
+        <div class="item-title">
+            <span>banner描述</span>
+        </div>
+        <input>
+    </div>
+    <div class="operateAdd-position">
+        <div class="item-title">
+            <span>banner位置</span>
+        </div>
+        <select class="operateAdd-position-select" ng-model="operatePosition"
+                ng-options="operatePosition for operatePosition in operatePositionList">
+            <option value=""  disabled>请选择banner显示位置</option>
+        </select>
+    </div>
+    <div class="operateAdd-source">
+
+    </div>
+    <div class="operateAdd-link">
+
+    </div>
+    <div class="operateAdd-status"></div>
+    <div class="operateAdd-option"></div>
 </div>

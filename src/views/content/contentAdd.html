@@ -7,6 +7,7 @@
                 ng-options="contentType for contentType in contentTypeList">
             <option value=""  disabled>请选择内容分类</option>
         </select>
+        <div class="error-message" ng-show="typeIsNull">类别不能为空</div>
     </div>
     <div class="contentAdd-title">
         <input class="search-input" type="text" placeholder="请输入文章标题" ng-model="contentTitle">

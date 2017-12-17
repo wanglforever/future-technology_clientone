@@ -7,7 +7,7 @@
  */
 'use strict';
 angular.module('main.content')
-.service('contentService',['$http','$q','serverUrl','userInfoService',function ($http,$q,serverUrl,userInfoService) {
+.service('contentService',['$http','$q','serverUrl',function ($http,$q,serverUrl) {
 
     var service = this;
 

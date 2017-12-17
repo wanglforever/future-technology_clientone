@@ -7,11 +7,24 @@
     }
     .contentAdd-type{
         margin-top: 15px;
+        display: flex;
+        justify-content:flex-start;
         .contentAdd-type-select{
             width: 200px;
             height: 34px;
             border: 1px solid #999;
             border-radius: 5px;
+        }
+        .error-message{
+            margin-left: 20px;
+            width: 200px;
+            height: 34px;
+            background: #FFFBE7;
+            border: 1px solid #EDC888;
+            border-radius: 6px;
+            line-height: 34px;
+            text-align: center;
+            color: #EF4E4E;
         }
     }
     .contentAdd-title{

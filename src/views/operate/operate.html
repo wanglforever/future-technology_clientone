@@ -13,8 +13,8 @@
             <tr>
                 <td>
                     <div ng-click="selectAll()" class="index-layout">
-                        <div ng-show="chooseAll" class="icon-icon-checkbox-active-custom"></div>
-                        <div ng-show="!chooseAll" class="icon-icon-checkbox-normal-custom"></div>
+                        <div ng-show="isSelectAll()" class="icon-icon-checkbox-active-custom"></div>
+                        <div ng-show="!isSelectAll()" class="icon-icon-checkbox-normal-custom"></div>
                         <span>序号</span>
                     </div>
                 </td>
@@ -29,7 +29,50 @@
             </tr>
             </thead>
             <tbody>
-
+            <tr ng-repeat="operate in operateList track by $index">
+                <td>
+                    <div ng-click="select(operate.banner_id)" class="index-layout">
+                        <div ng-show="operate.isSelected" class="icon-icon-checkbox-active-custom"></div>
+                        <div ng-show="!operate.isSelected" class="icon-icon-checkbox-normal-custom"></div>
+                        <span>{{(pageParam.currentPage-1) * 10+$index+1}}</span>
+                    </div>
+                </td>
+                <td>
+                    {{operate.banner_name}}
+                </td>
+                <td>
+                    {{operate.banner_description}}
+                </td>
+                <td>
+                    {{operate.banner_source}}
+                </td>
+                <td>
+                    {{operate.ref_address}}
+                </td>
+                <td>
+                    {{operate.position_name}}
+                </td>
+                <td>
+                    {{operate.bstatus_name}}
+                </td>
+                <td>
+                    {{operate.banner_mktime}}
+                </td>
+                <td>
+                    <button class="button-general" ng-click="edit($index)">
+                        编辑
+                    </button>
+                    <button class="button-general" ng-click="online(operate.essay_id)" ng-show="operate.bstatus_name == '停用中'">
+                        启用
+                    </button>
+                    <button class="button-general-simple" ng-click="offline(operate.essay_id)"  ng-show="operate.bstatus_name == '启用中'">
+                        停用
+                    </button>
+                    <button class="button-general" ng-click="delete(operate.essay_id)">
+                        删除
+                    </button>
+                </td>
+            </tr>
             </tbody>
         </table>
         <div class="pagination-position">

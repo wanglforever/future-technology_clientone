@@ -6,7 +6,8 @@ angular.module('udbs', [
         'udbs.login',
         'main.content',
         'main.operate',
-        'ui.bootstrap.datetimepicker'
+        'ui.bootstrap.datetimepicker',
+        'ngFileUpload'
     ])
     .config(['$urlRouterProvider', '$locationProvider',
         function($urlRouterProvider, $locationProvider) {

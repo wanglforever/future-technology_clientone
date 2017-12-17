@@ -52,6 +52,16 @@ angular.module('main.content')
         };
 
         $scope.save = function () {
+            if ($scope.contentType == null){
+                $scope.typeIsNull = true;
+                return;
+            }
+            $scope.typeIsNull = false;
+            if( $scope.contentTitle==null ){
+                $scope.isDuplicateName = true;
+                $scope.errorMessage = '标题不能为空';
+                return;
+            }
             var tmpContent = {
                 essay_title:$scope.contentTitle,
                 catogory_id:$scope.contentTypeMap[$scope.contentType],
