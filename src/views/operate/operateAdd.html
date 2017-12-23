@@ -6,29 +6,75 @@
         <div class="item-title">
             <span>banner名称</span>
         </div>
-        <input>
+        <input type="text" placeholder="请输入banner名称" ng-model="bannerName" maxlength="50">
+        <div class="error-message" ng-show="nameIsNull">名称不能为空</div>
     </div>
     <div class="operateAdd-description">
         <div class="item-title">
             <span>banner描述</span>
         </div>
-        <input>
+        <input type="text" placeholder="请输入banner描述" ng-model="bannerDescription">
     </div>
     <div class="operateAdd-position">
         <div class="item-title">
             <span>banner位置</span>
         </div>
-        <select class="operateAdd-position-select" ng-model="operatePosition"
-                ng-options="operatePosition for operatePosition in operatePositionList">
+        <select class="operateAdd-position-select" ng-model="bannerPosition"
+                ng-options="bannerPosition for bannerPosition in operatePositionList">
             <option value=""  disabled>请选择banner显示位置</option>
         </select>
+        <div class="error-message" ng-show="optionIsNull">请选择banner位置</div>
     </div>
     <div class="operateAdd-source">
-
+        <div class="item-title">
+            <span>资源上传</span>
+        </div>
+        <div class="img-position">
+            <p ng-show="isShowDefault">显示图片</p>
+            <div ng-show="isUploading">
+                <img src="../../images/loading.gif">
+            </div>
+            <img src="{{fileUrl}}" ng-show="!isUploading && !isShowDefault" height="140px" width="190px">
+        </div>
+        <button class="button-general"
+                ngf-pattern=".png,.jpg"
+                accept=".png,.jpg"
+                ngf-multiple = "false"
+                ngf-select="uploadOperate($file)">
+            上传
+        </button>
+        <div class="error-message" ng-show="fileIsNull">文件没有上传</div>
     </div>
     <div class="operateAdd-link">
-
+        <div class="item-title">
+            <span>跳转链接</span>
+        </div>
+        <input type="text" placeholder="请输入点击时跳转的链接地址" ng-model="bannerRef">
+        <div class="error-message" ng-show="checkFail">该链接地址无法访问</div>
     </div>
-    <div class="operateAdd-status"></div>
-    <div class="operateAdd-option"></div>
+    <div class="operateAdd-title">
+        <div class="item-title">
+            <span>悬浮标题</span>
+        </div>
+        <input type="text" placeholder="请输入banner悬浮框的标题" ng-model="bannerTitle" maxlength="50">
+    </div>
+    <div class="operateAdd-content">
+        <div class="item-title">
+            <span>悬浮内容</span>
+        </div>
+        <input type="text" placeholder="请输入banner悬浮框的内容" ng-model="bannerContent">
+    </div>
+    <div class="operateAdd-status">
+            <span>是否开启</span>
+        <div ng-class="{'enabled':enabled}" ng-click="changeSelected(0)">启用</div>
+        <div ng-class="{'enabled':!enabled}" ng-click="changeSelected(1)">暂不启用</div>
+    </div>
+    <div class="operateAdd-option">
+        <button class="button-general" ng-click="save()">
+            保存
+        </button>
+        <button class="button-general-simple" ng-click="cancel()">
+            取消
+        </button>
+    </div>
 </div>

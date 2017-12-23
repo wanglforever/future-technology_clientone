@@ -7,7 +7,7 @@
  */
 'use strict';
 angular.module('main.operate')
-    .controller('operateController',['$scope', '$state',function ($scope,$state) {
+    .controller('operateController',['$scope', '$state','operateService',function ($scope,$state,operateService) {
 
         $scope.batchId = [];
         $scope.operateList = [];
@@ -47,6 +47,40 @@ angular.module('main.operate')
                     }
                 }
             }
+        };
+
+        $scope.getList = function (pageNum) {
+            var queryInfo = {
+                currentPage:pageNum
+            };
+            operateService.query(queryInfo).then(function (resp) {
+                if(resp.data != null){
+                    $scope.operateList = resp.data.infoList;
+                }else{
+                    $scope.operateList = [];
+                }
+                $scope.pageParam = resp.data;
+            })
+        };
+
+        $scope.getList(1);
+
+        $scope.changeState = function (id) {
+            operateService.downline(id).then(function (resp) {
+                $scope.getList($scope.pageParam.currentPage);
+            })
+        };
+
+        $scope.delete = function (id) {
+            operateService.delete(id).then(function (resp) {
+                $scope.getList($scope.pageParam.currentPage);
+            })
+        };
+
+        $scope.batchdelete = function () {
+            operateService.batchDelete($scope.batchId).then(function (resp) {
+                $scope.getList(1);
+            })
         };
 
     }]);

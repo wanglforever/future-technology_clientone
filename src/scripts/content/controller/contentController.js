@@ -89,7 +89,7 @@ angular.module('main.content')
 
     $scope.batchDelete = function () {
         contentService.batchDelete($scope.batchId).then(function (resp) {
-            $scope.queryContentList();
+            $scope.queryContentList($scope.pageParam.currentPage);
         })
     };
 
@@ -119,19 +119,19 @@ angular.module('main.content')
 
     $scope.online = function (id) {
         contentService.changeStatus(id).then(function (resp) {
-            $scope.queryContentList();
+            $scope.queryContentList($scope.pageParam.currentPage);
         })
     };
 
     $scope.offline = function (id) {
         contentService.changeStatus(id).then(function (resp) {
-            $scope.queryContentList();
+            $scope.queryContentList($scope.pageParam.currentPage);
         })
     };
 
     $scope.delete = function (id) {
         contentService.delete(id).then(function (resp) {
-            $scope.queryContentList();
+            $scope.queryContentList($scope.pageParam.currentPage);
         })
     }
 }]);

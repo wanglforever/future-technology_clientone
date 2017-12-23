@@ -48,15 +48,11 @@ angular.module('main.content')
 
         $scope.changeSelected = function (id) {
             $scope.contentStatus = id;
-            $scope.selected = !$scope.selected;
+            $scope.selected = id === 0;
         };
 
         $scope.save = function () {
-            if ($scope.contentType == null){
-                $scope.typeIsNull = true;
-                return;
-            }
-            $scope.typeIsNull = false;
+            $scope.typeIsNull = $scope.contentType == null;
             if( $scope.contentTitle==null ){
                 $scope.isDuplicateName = true;
                 $scope.errorMessage = '标题不能为空';

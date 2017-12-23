@@ -11,9 +11,9 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        flex-wrap: wrap;
         .content-startTime{
-            width: 350px;
-            height: 40px;
+            width: 320px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -22,7 +22,7 @@
                 justify-content:flex-start;
                 align-items:center;
                 .display-startTime{
-                    width: 200px;
+                    width: 170px;
                     height: 34px;
                     line-height: 34px;
                     border: 1px solid #999;
@@ -57,7 +57,7 @@
             }
         }
         .content-endTime{
-            width: 350px;
+            width: 320px;
             height: 40px;
             display: flex;
             flex-direction: column;
@@ -67,7 +67,7 @@
                 justify-content:flex-start;
                 align-items:center;
                 .display-endTime{
-                    width: 200px;
+                    width: 170px;
                     height: 34px;
                     line-height: 34px;
                     border: 1px solid #999;
@@ -102,14 +102,22 @@
             }
         }
         .content-type-select{
-            width: 200px;
+            width: 150px;
             height: 34px;
             border: 1px solid #999;
             border-radius: 5px;
         }
+        select{
+            padding-left: 5px;
+        }
+    }
+    .search-newline{
+        margin-top: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         .content-status-select{
-            margin-left: 20px;
-            width: 100px;
+            width: 80px;
             height: 34px;
             border: 1px solid #999;
             border-radius: 5px;
@@ -117,7 +125,7 @@
         .search-input{
             margin-left: 20px;
             padding-left: 10px;
-            width: 200px;
+            width: 150px;
             height: 34px;
             border: 1px solid #999;
             border-radius: 5px;
@@ -152,12 +160,13 @@
             align-items: center;
         }
         table{
+            //width: 1000px;
             td{
                 padding-left: 15px;
                 text-align: center;
                 height: 40px;
                 &:nth-child(1){
-                    width: 200px;
+                    width: 100px;
                     >div{
                         display: flex;
                         justify-content:center;
@@ -168,16 +177,16 @@
                     }
                 }
                 &:nth-child(2){
-                    width: 620px;
+                    width: 300px;
                 }
                 &:nth-child(3){
-                    width: 200px;
+                    width: 150px;
                 }
                 &:nth-child(4){
-                    width: 200px;
+                    width: 100px;
                 }
                 &:nth-child(5){
-                    width: 200px;
+                    width: 170px;
                 }
                 &:nth-child(6){
                     button{

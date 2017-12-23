@@ -33,9 +33,8 @@
             td{
                 padding-left: 15px;
                 text-align: center;
-                height: 40px;
                 &:nth-child(1){
-                    width: 100px;
+                    width: 90px;
                     >div{
                         display: flex;
                         justify-content:center;
@@ -46,28 +45,53 @@
                     }
                 }
                 &:nth-child(2){
-                    width: 200px;
+                    width: 100px;
                 }
                 &:nth-child(3){
-                    width: 200px;
+                    width: 150px;
                 }
                 &:nth-child(4){
-                    width: 200px;
+                    width: 100px;
                 }
                 &:nth-child(5){
-                    width: 200px;
+                    width: 150px;
                 }
                 &:nth-child(6){
-                    width: 200px;
+                    width: 100px;
                 }
                 &:nth-child(7){
                     width: 100px;
                 }
                 &:nth-child(8){
-                    width: 200px;
+                    width: 100px;
+                }
+                &:nth-child(9){
+                    >div{
+                        display: flex;
+                        justify-content:flex-start;
+                    }
                 }
             }
         };
+        .source-size{
+            width: 100px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border:1px solid #999;
+        }
+        .button-general{
+            width: 60px;
+            height: 26px;
+            border: none;
+            border-radius: 3px;
+        }
+        .button-general-simple{
+            width: 60px;
+            height: 26px;
+            border: none;
+            border-radius: 3px;
+        }
     }
     .icon-icon-checkbox-active-custom{
         color: #5A97F7;
